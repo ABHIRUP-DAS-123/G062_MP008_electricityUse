@@ -1,0 +1,93 @@
+# Configuration for Group G062 | Problem MP008: Household Electricity Use Prediction
+
+project:
+  group_id: "G062"
+  problem_id: "MP008"
+  random_state: 42
+
+data:
+  train_path: "data/raw/train.csv"
+  later_path: "data/raw/later.csv"
+  holdout_path: "data/raw/holdout_features.csv"
+  expected_train_sha256: "9aea26c5aa76831f4a4e58a3dfafd06d47144136c13ace14834010bfcf472781"
+  expected_later_sha256: "4c161defd6502ae4c6336aef612118ac329579730f31ee879d265e5df692db8c"
+  expected_holdout_sha256: "c701755d2e84f1e877edf12a2aab797bba448807816635c8d4ceded8226cf896"
+  target_column: "units_kwh"
+  id_column: "record_id"
+  date_column: "date"
+  leakage_column: "billed_units_after_reading"
+  group_column: "feeder"
+  feature_columns:
+    - "rooms"
+    - "members"
+    - "ac_hours_per_day"
+    - "avg_temp_c"
+    - "house_area_sqft"
+    - "solar_kw"
+    - "connection"
+    - "feeder"
+  numeric_features:
+    - "rooms"
+    - "members"
+    - "ac_hours_per_day"
+    - "avg_temp_c"
+    - "house_area_sqft"
+    - "solar_kw"
+  categorical_features:
+    - "connection"
+    - "feeder"
+
+preprocessing:
+  numeric_imputer_strategy: "median"
+  categorical_imputer_strategy: "most_frequent"
+  scale_numeric: true
+
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  experiment_name: "MP008_Electricity_Consumption"
+  registered_model_name: "MP008_Electricity_Model"
+  champion_alias: "champion"
+  serialization_format: "cloudpickle"
+
+training:
+  primary_metric: "mae"
+  v2_train_fraction: 0.70
+  promotion_improvement_threshold: 0.10
+  candidates:
+    RandomForestRegressor:
+      model_type: "RandomForestRegressor"
+      hyperparameters:
+        n_estimators: 200
+        max_depth: 12
+        min_samples_split: 4
+        min_samples_leaf: 2
+        random_state: 42
+    ExtraTreesRegressor:
+      model_type: "ExtraTreesRegressor"
+      hyperparameters:
+        n_estimators: 200
+        max_depth: 12
+        min_samples_split: 4
+        min_samples_leaf: 2
+        random_state: 42
+    HistGradientBoostingRegressor:
+      model_type: "HistGradientBoostingRegressor"
+      hyperparameters:
+        max_iter: 200
+        max_depth: 8
+        learning_rate: 0.05
+        min_samples_leaf: 10
+        random_state: 42
+
+monitoring:
+  psi_buckets: 10
+
+outputs:
+  champion_model_path: "models/model.joblib"
+  holdout_predictions_path: "predictions/holdout_predictions.csv"
+  findings_path: "reports/findings.yaml"
+  model_comparison_path: "reports/model_comparison.json"
+  v1_metrics_path: "reports/v1_metrics.json"
+  v2_metrics_path: "reports/v2_metrics.json"
+  feeder_metrics_path: "reports/feeder_metrics.json"
+  promotion_decision_path: "reports/promotion_decision.json"

@@ -1,0 +1,66 @@
+{
+  "dataframe_split": {
+    "columns": [
+      "rooms",
+      "members",
+      "ac_hours_per_day",
+      "avg_temp_c",
+      "house_area_sqft",
+      "solar_kw",
+      "connection",
+      "feeder"
+    ],
+    "data": [
+      [
+        6,
+        4,
+        8.35,
+        18.5,
+        736,
+        0.14,
+        "domestic_plus",
+        "Feeder-1"
+      ],
+      [
+        5,
+        7,
+        6.18,
+        31.0,
+        1801,
+        5.75,
+        "domestic",
+        "Feeder-3"
+      ],
+      [
+        3,
+        7,
+        7.22,
+        25.3,
+        627,
+        2.89,
+        "domestic",
+        "Feeder-2"
+      ],
+      [
+        6,
+        4,
+        9.41,
+        23.8,
+        1959,
+        4.7,
+        "domestic_plus",
+        "Feeder-2"
+      ],
+      [
+        3,
+        8,
+        7.98,
+        21.9,
+        1908,
+        0.5,
+        "shop_cum_home",
+        "Feeder-2"
+      ]
+    ]
+  }
+}

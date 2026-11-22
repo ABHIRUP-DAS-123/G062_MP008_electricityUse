@@ -1,0 +1,38 @@
+{
+  "stage": "V2",
+  "selected_model_name": "HistGradientBoostingRegressor",
+  "run_id": "771e0261168f4cacb33aa1c0870ba96c",
+  "registered_model_name": "MP008_Electricity_Model",
+  "registered_version": 2,
+  "data_sha256": "9aea26c5aa76831f4a4e58a3dfafd06d47144136c13ace14834010bfcf472781",
+  "train_rows_total": 1210,
+  "train_rows_original": 1000,
+  "train_rows_later_first_70pct": 210,
+  "later_first_70pct_date_range": {
+    "start": "2026-07-01",
+    "end": "2026-08-14"
+  },
+  "evaluation_dataset": "later.csv (final 30% chronological, 90 rows)",
+  "evaluation_rows": 90,
+  "later_last_30pct_date_range": {
+    "start": "2026-08-14",
+    "end": "2026-08-31"
+  },
+  "metrics_last_30pct_later": {
+    "mae": 42.2941,
+    "rmse": 52.7621,
+    "r2": 0.894
+  },
+  "feeder_mae_last_30pct": {
+    "Feeder-1": 32.3215,
+    "Feeder-2": 38.8198,
+    "Feeder-3": 53.3086
+  },
+  "hyperparameters": {
+    "max_iter": 200,
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "min_samples_leaf": 10,
+    "random_state": 42
+  }
+}

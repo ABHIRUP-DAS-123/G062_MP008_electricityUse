@@ -12,8 +12,7 @@ __pycache__/
 venv/
 env/
 
-# MLflow local artifacts (mlflow.db is intentionally NOT ignored)
-mlruns/
+# MLflow local artifacts (mlflow.db and mlruns/ are tracked for portable model registry artifacts)
 mlartifacts/
 
 # Editor and OS files

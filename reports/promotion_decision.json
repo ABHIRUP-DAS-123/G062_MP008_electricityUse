@@ -1,0 +1,35 @@
+{
+  "registered_model_name": "MP008_Electricity_Model",
+  "v1_version": 1,
+  "v1_run_id": "a75cf33d5ce84520964c7874a6befa68",
+  "v2_version": 2,
+  "v2_run_id": "771e0261168f4cacb33aa1c0870ba96c",
+  "protocol_note": "Per project protocol, V1 is evaluated on the complete later.csv dataset (300 rows) and also checked on the chronological final 30% segment (90 rows), while V2 is trained on cleaned train.csv + first 70% chronological later.csv (1210 rows) and evaluated on the chronological final 30% of later.csv (90 rows). Because complete later.csv and its final 30% segment are different evaluation splits, both comparisons are reported transparently.",
+  "comparison_v1_full_later_vs_v2_final_30pct": {
+    "promoted": true,
+    "decision": "promote",
+    "v1_mae": 98.0774,
+    "v2_mae": 42.2941,
+    "improvement_threshold": 0.1,
+    "required_max_v2_mae": 88.2697,
+    "relative_improvement": 0.5688,
+    "relative_improvement_pct": 56.88
+  },
+  "comparison_v1_final_30pct_vs_v2_final_30pct": {
+    "promoted": true,
+    "decision": "promote",
+    "v1_mae": 93.3714,
+    "v2_mae": 42.2941,
+    "improvement_threshold": 0.1,
+    "required_max_v2_mae": 84.0342,
+    "relative_improvement": 0.547,
+    "relative_improvement_pct": 54.7
+  },
+  "promoted": true,
+  "decision": "promote",
+  "champion_stage": "V2",
+  "champion_version": 2,
+  "champion_run_id": "771e0261168f4cacb33aa1c0870ba96c",
+  "champion_alias": "champion",
+  "champion_model_path": "models\\model.joblib"
+}
