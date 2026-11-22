@@ -1,0 +1,53 @@
+group_id: G062
+problem_id: MP008
+data_issues:
+  leaking_column:
+    present: true
+    column: billed_units_after_reading
+  unit_mixup:
+    present: true
+    column: ac_hours_per_day
+    group_value: Feeder-1
+    factor: 60
+  sentinel_value:
+    present: false
+    column: null
+    value: null
+    count: null
+  duplicate_rows:
+    present: false
+    count: null
+  stuck_sensor:
+    present: false
+    column: null
+    start_date: null
+    end_date: null
+  target_typos:
+    present: true
+    count: 12
+  spelling_variants:
+    present: false
+    column: null
+    true_levels: null
+tracking:
+  experiment_name: null
+  best_run_id: null
+  registered_model_name: null
+  champion_version: null
+monitoring:
+  psi:
+    rooms: null
+    members: null
+    ac_hours_per_day: null
+    avg_temp_c: null
+    house_area_sqft: null
+    solar_kw: null
+  most_drifted_feature: null
+  mae_by_group:
+    Feeder-1: null
+    Feeder-2: null
+    Feeder-3: null
+  worst_served_group: null
+  mae_v1_on_check: null
+  mae_v2_on_check: null
+  decision: null
